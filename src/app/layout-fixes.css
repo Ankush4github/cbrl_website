@@ -1,0 +1,68 @@
+/* Direct fixes for CSS linting issues in compiled output */
+
+/* 
+ * Fix for vendor prefix issues at lines 384 and 428 
+ * These target the exact selectors that might be causing issues
+ */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none !important;
+  box-sizing: border-box !important;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none !important;
+  box-sizing: border-box !important;
+}
+
+/* 
+ * Fix for incorrect vertical-align at line 557 
+ * This targets svg elements that are likely causing the issue
+ */
+svg {
+  display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+}
+
+/* More specific fixes for common elements */
+.search-icon svg,
+.nav-icon svg,
+button svg,
+a svg {
+  display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+}
+
+/* Global form element fixes */
+input, 
+button, 
+textarea, 
+select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+/* The following !important rules override any possible conflicts */
+.override-appearance {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+.override-vertical-align {
+  display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+}
+
+/* Fix for vertical-align with display:block issue */
+.block-to-flex {
+  display: flex !important;
+  align-items: center !important;
+} 

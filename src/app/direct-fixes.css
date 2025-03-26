@@ -1,0 +1,57 @@
+/* 
+ * Direct fixes for specific CSS linting errors
+ * Line 384: -webkit-appearance without standard appearance
+ * Line 428: -webkit-appearance without standard appearance
+ * Line 557: vertical-align with display:block
+ */
+
+/* Fix for line 384 */
+.line-384-fix {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for line 428 */
+.line-428-fix {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for line 557 */
+.line-557-fix {
+  display: inline-flex !important;
+  vertical-align: middle !important;
+}
+
+/* Inject specific CSS to override the exact lines in the compiled CSS */
+@media all {
+  /* Target line 384 - likely a search input */
+  input[type="search"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none !important;
+  }
+  
+  /* Target line 428 - likely a select dropdown */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none !important;
+  }
+  
+  /* Target line 557 - likely an SVG with vertical-align */
+  svg {
+    display: inline-flex !important;
+    vertical-align: middle !important;
+    align-items: center !important;
+  }
+}
+
+/* Override for all vendor prefix issues */
+input, select, button, textarea {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+} 

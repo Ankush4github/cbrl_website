@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --hover-transition: 0.3s ease-in-out;
+}
+
+[data-theme='dark'] {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+  
+  /* More comprehensive fixes for browser compatibility */
+  input[type="search"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  /* Fix for elements that need both vertical-align and display property */
+  .vertical-middle {
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+  
+  /* Fix for block elements with vertical-align */
+  .block-with-align {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@layer components {
+  /* Card hover effects */
+  .hover-card {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-lg hover:scale-[1.02] hover:bg-gradient-to-br from-white to-gray-50;
+    @apply dark:hover:from-gray-800 dark:hover:to-gray-700;
+  }
+
+  /* Button hover effects */
+  .hover-button {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:bg-primary/90 hover:scale-[1.02] hover:shadow-md;
+    @apply dark:hover:bg-primary/80;
+  }
+
+  /* Link hover effects */
+  .hover-link {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:text-primary dark:hover:text-primary/90;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
+    after:bg-primary dark:after:bg-primary/90 after:transition-all after:duration-300;
+    @apply hover:after:w-full;
+    display: inline-block;
+  }
+
+  /* Navigation link hover effects */
+  .nav-link {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:text-primary dark:hover:text-primary/90;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
+    after:bg-primary dark:after:bg-primary/90 after:transition-all after:duration-300;
+    @apply hover:after:w-full;
+    display: inline-block;
+  }
+
+  /* Image hover effects */
+  .hover-image {
+    @apply transition-all duration-500 ease-in-out;
+    @apply hover:scale-105 hover:shadow-lg;
+    @apply hover:brightness-110;
+  }
+
+  /* Section hover effects */
+  .hover-section {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:bg-gray-50/50 dark:hover:bg-gray-800/50;
+    @apply rounded-lg;
+  }
+
+  /* Input hover and focus effects */
+  .hover-input {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:border-primary/60 focus:border-primary focus:ring-2 focus:ring-primary/20;
+    @apply dark:hover:border-primary/40 dark:focus:border-primary/80 dark:focus:ring-primary/10;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  /* Icon hover effects */
+  .hover-icon {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:text-primary hover:scale-110;
+    @apply dark:hover:text-primary/90;
+    display: inline-block;
+  }
+
+  /* Publication card hover effects */
+  .hover-publication {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-lg hover:scale-[1.01];
+    @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+  }
+
+  /* Metric card hover effects */
+  .hover-metric {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-lg hover:scale-[1.05];
+    @apply hover:bg-primary/5 dark:hover:bg-primary/10;
+  }
+
+  /* Facility card hover effects */
+  .hover-facility {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-xl hover:scale-[1.02];
+    @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+  }
+
+  /* Contact form hover effects */
+  .hover-form {
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-md hover:border-primary/30;
+    @apply dark:hover:border-primary/20;
+  }
+} 

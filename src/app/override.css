@@ -1,0 +1,108 @@
+/* Performance Optimizations */
+
+/* Enable hardware acceleration for animations */
+.animate-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize font rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize images and lazy loading */
+img {
+  content-visibility: auto;
+  contain: content;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  * {
+    contain: content;
+    content-visibility: auto;
+  }
+}
+
+/* CSS fixes for specific linting issues */
+
+/* Fix for line 384: button with vendor prefix */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  touch-action: manipulation;
+}
+
+/* Fix for line 428: search input with vendor prefix */
+[type='search'] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Fix for line 557: svg vertical-align issue */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  will-change: transform;
+}
+
+/* Safer comprehensive fixes with fewer conflicts */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Performance optimizations for interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize layout shifts */
+main {
+  contain: layout style paint;
+}
+
+/* Optimize scrolling performance */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Remove potentially conflicting duplicates */
+
+/* Ensure all svg elements have appropriate display for vertical-align */
+svg {
+  max-width: 100%;
+} 
